@@ -1,0 +1,88 @@
+<!-- views/login.ejs -->
+<!doctype html>
+<html>
+<head>
+	<title>Bill</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+	<style>
+		body 		{ padding-top:80px; }
+	</style>
+</head>
+<body>
+<div class="container">
+
+<div class="col-sm-6 col-sm-offset-3">
+
+	<h1><span class="fa fa-sign-in"></span> Đặt Hàng</h1>
+
+
+
+	<!-- LOGIN FORM -->
+    <form action="/dathang" method="post">
+        
+        <% if(products.length>0){ %>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Tên mặt hàng</th>
+                  <th>Số lượng</th>
+                  <th>Giá</th>
+                  <th>Thành tiền</th>
+                  
+                    </>
+                </tr>
+              </thead>
+              <tbody>
+                <% products.forEach(function(product){ %>
+                  <tr>
+                    <td>
+                      <%= product.item.name %>
+                    </td>
+                    <td>
+                      <%= product.quantity %>
+                    </td>
+                    <td>
+                      <%= product.gia %> VND
+                    </td>
+                    <td>
+                      <%= product.thanhtien %> VND
+                    </td>
+                    
+                  </tr>
+                  <% })  %>
+              </tbody>
+            </table>
+      
+            <br/>
+            <% }else{ %>
+              <p>Bạn chua mua sản phẩm nào!!!! </p>
+              <% } %>
+		<div class="form-group">
+			<label>Tên Khách hàng</label>
+			<input type="text"  class="form-control" name="name"  value=  <%= User.local.name %> >
+		</div>
+		<div class="form-group">
+			<label>Mail </label>
+			<input type="text" class="form-control" name="mail" value= <%= User.local.email %>>
+        </div>
+        <div class="form-group">
+			<label>Số Điện Thoại </label>
+			<input type="text" class="form-control" name="sdt" value= <%= User.local.sdt %>>
+		</div>
+        <div class="form-group">
+			<label>Tổng Tiền Đơn Hàng </label>
+			<input type="text" class="form-control" name="tongtien" value= <%= price %> %>>
+		</div>
+		<button type="hidden" class="btn btn-warning btn-lg">Gửi</button>
+	</form>
+
+	<hr>
+
+	
+
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <h1 class="text-center">Add Product</h1>
+    <% if (typeof message !== 'undefined') {%>
+      <div class="alert alert-danger"><%- message %></div>
+
+    <% }%>
+    <form action="/add_product" method="post" enctype="multipart/form-data" >
+      
+      <div class="form-group">
+        <label for="">Name</label>
+        <input type="text" class="form-control" name="name">
+      </div>
+
+      <div class="form-group">
+        <label for="">Description</label>
+        <input type="text" class="form-control" name="description">
+      </div>
+
+      <div class="form-group">
+        <label for="">Price</label>
+        <input type="text" class="form-control" name="price">
+      </div>
+
+
+
+      <did class="form-group">
+        <label for="">Hình ảnh</label>
+        <input type="file" class="form-control" name="uploadfile">
+      </did>
+      <button class="btn btn-primary" type="submit">Add Product</button>
+
+    </form>
+    
+  </div>
+
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+</body>
+
+</html>

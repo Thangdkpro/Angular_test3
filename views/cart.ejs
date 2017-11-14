@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+
+
+  <div class="container">
+    <h1>View Cart</h1>
+    <hr />
+
+    <% if(products.length>0){ %>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Tên mặt hàng</th>
+            <th>Số lượng</th>
+            <th>Giá</th>
+            <th>Thành tiền</th>
+            <th>Xóa mặt hàng
+              </>
+          </tr>
+        </thead>
+        <tbody>
+          <% products.forEach(function(product){ %>
+            <tr>
+              <td>
+                <%= product.item.name %>
+              </td>
+              <td>
+                <%= product.quantity %>
+              </td>
+              <td>
+                <%= product.gia %> VND
+              </td>
+              <td>
+                <%= product.thanhtien %> VND
+              </td>
+              <td>
+                <a href="/remove/<%= product.item._id %>" class="btn btn-danger"><i class="fa fa-trash-o"></i></a>
+              </td>
+            </tr>
+            <% })  %>
+        </tbody>
+      </table>
+
+      <br/>
+      <div class="row">
+        <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+
+          <strong>Tổng Giá : <%= price %>  VND   </strong>
+
+        </div>
+      </div>
+      <a href='/clear' class="btn btn-danger">Clear</a>
+      <a href="/dathang" class="btn btn-danger" >Đặt Hàng</a>
+      <% }else{ %>
+        <p>Bạn chua mua sản phẩm nào!!!! </p>
+        <% } %>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-kj3o2dktikvyik3uenzmm7kckrr/re9/qpg6aazgjwfdmvna/gpgff93hxpg5kkn"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0abixch4zdo7tp9hkz4tshbi047nrkglo3sejag45jxxngifyzk4si90rdiqnm1"
+    crossorigin="anonymous"></script>
+</body>
+</body>
+
+</html>
